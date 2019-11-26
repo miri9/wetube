@@ -4,7 +4,7 @@ export const videos = [
 		title: "Video awesome",
 		description: "This is something I love.",
 		views: 25,
-		videoFile:"https://interactive-examples.mdn.mozilla.net/media/examples/flower.webm",
+		videoFile:"https://www.w3schools.com/html/mov_bbb.mp4",
 		creator: {
 			id:10000,
 			name:"Miri",
@@ -16,7 +16,7 @@ export const videos = [
 		title: "Video nice",
 		description: "This is something I love.",
 		views: 25,
-		videoFile:"https://interactive-examples.mdn.mozilla.net/media/examples/flower.webm",
+		videoFile:"https://www.w3schools.com/html/mov_bbb.mp4",
 		creator: {
 			id:10000,
 			name:"Miri",
@@ -28,7 +28,7 @@ export const videos = [
 		title: "Video cool",
 		description: "This is something I love.",
 		views: 25,
-		videoFile:"https://interactive-examples.mdn.mozilla.net/media/examples/flower.webm",
+		videoFile:"https://www.w3schools.com/html/mov_bbb.mp4",
 		creator: {
 			id:10000,
 			name:"Miri",
@@ -40,7 +40,7 @@ export const videos = [
 		title: "Video perfect",
 		description: "This is something I love.",
 		views: 25,
-		videoFile:"https://interactive-examples.mdn.mozilla.net/media/examples/flower.webm",
+		videoFile:"https://www.w3schools.com/html/mov_bbb.mp4",
 		creator: {
 			id:10000,
 			name:"Miri",
