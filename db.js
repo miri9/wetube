@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
 
-mongoose.connect("mongodb://localhost:27017/we-tube",
+dotenv.config();
+// .env 파일 안의 정보 불러옴. 그리고 찾은 모든 변수들을 process.env.key 에 저장할 것임.
+
+mongoose.connect(process.env.MONGO_URL,
 	{
 		useNewUrlParser: true,
 		useFindAndModify: false
@@ -9,7 +12,6 @@ mongoose.connect("mongodb://localhost:27017/we-tube",
 );
 
 const db = mongoose.connection;
-// mongo와의 연결. 이 부분은 나중에 export 하여 사용하게 될 것.
 
 const handleOpen = () => {
 	console.log("Connected to DB!!");
@@ -19,5 +21,4 @@ const handleError = (error) => {
 }
 
 db.once("open", handleOpen);
-// 한번만 연다는 뜻.
 db.on("error", handleError);
