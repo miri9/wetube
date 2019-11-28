@@ -1,50 +1,23 @@
-export const videos = [
+import mongoose from "mongoose";
+// import dotenv from "dotenv";
+
+mongoose.connect("mongodb://localhost:27017/we-tube",
 	{
-		id:12234,
-		title: "Video awesome",
-		description: "This is something I love.",
-		views: 25,
-		videoFile:"https://www.w3schools.com/html/mov_bbb.mp4",
-		creator: {
-			id:10000,
-			name:"Miri",
-			email:"miri@miri.com"
-		}
-	},
-	{
-		id:57784,
-		title: "Video nice",
-		description: "This is something I love.",
-		views: 25,
-		videoFile:"https://www.w3schools.com/html/mov_bbb.mp4",
-		creator: {
-			id:10000,
-			name:"Miri",
-			email:"miri@miri.com"
-		}
-	},
-	{
-		id:99802,
-		title: "Video cool",
-		description: "This is something I love.",
-		views: 25,
-		videoFile:"https://www.w3schools.com/html/mov_bbb.mp4",
-		creator: {
-			id:10000,
-			name:"Miri",
-			email:"miri@miri.com"
-		}
-	},
-	{
-		id:35519,
-		title: "Video perfect",
-		description: "This is something I love.",
-		views: 25,
-		videoFile:"https://www.w3schools.com/html/mov_bbb.mp4",
-		creator: {
-			id:10000,
-			name:"Miri",
-			email:"miri@miri.com"
-		}
-	},
-]
+		useNewUrlParser: true,
+		useFindAndModify: false
+	}
+);
+
+const db = mongoose.connection;
+// mongo와의 연결. 이 부분은 나중에 export 하여 사용하게 될 것.
+
+const handleOpen = () => {
+	console.log("Connected to DB!!");
+} 
+const handleError = (error) => {
+	console.log(`X : Error on DB Connection: ${error}`);
+}
+
+db.once("open", handleOpen);
+// 한번만 연다는 뜻.
+db.on("error", handleError);
