@@ -22,12 +22,19 @@ export const search = (req,res) => {
 export const getUpload = (req,res) => {
 	res.render("upload", { pageTitle : "Upload" });
 }
-export const postUpload = (req,res) => {
+export const postUpload = async (req,res) => {
 	const {
-		body: { file, title, description }
-	} = req;
-	// 할 일 : 비디오 업로드 및 저장
-	res.redirect(routes.videoDetail(12234));
+	 body: { title, description },
+	 file: { path }
+	 } = req;
+	 const newVideo = await Video.create({
+	 	//model/video.js 안의 비디오스키마 값을 입력.
+	 	fileUrl: path,
+		title: title,
+		description
+	 });
+	console.log(newVideo);
+	res.redirect(routes.videoDetail(newVideo.id));
 }
 
 export const videoDetail = (req,res) => res.render("videoDetail", {  pageTitle : "Video Detail" });
