@@ -23,6 +23,19 @@
     "start": "nodemon --exec babel-node init.js --delay 2"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
-  }
+    "eslint": "^6.7.2",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miri9/wetube.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miri9/wetube/issues"
+  },
+  "homepage": "https://github.com/miri9/wetube#readme"
 }
