@@ -1,4 +1,7 @@
-@import "/config/_variables.scss";
-body {
-    background-color: $sexyColor;
-}
+@import "config/_variables.scss";
+/*이름에 _ 붙인 이유 : Sass 파일 표기용 + 유저들이 실제로 사용않는 부분.*/
+@import "config/reset.scss";
+@import "main.scss";
+
+@import "partials/header.scss";
+@import "pages/home.scss";
