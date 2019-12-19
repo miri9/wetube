@@ -151,9 +151,96 @@ body {
 
 main {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   min-height: 70vh; }
+
+button,
+input:not([type="file"]),
+.fileUpload {
+  padding: 10px 10px 10px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  color: #444444;
+  max-width: 320px; }
+  button::-webkit-input-placeholder, input:not([type="file"])::-webkit-input-placeholder, .fileUpload::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.7); }
+  button::-moz-placeholder, input:not([type="file"])::-moz-placeholder, .fileUpload::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.7); }
+  button::-ms-input-placeholder, input:not([type="file"])::-ms-input-placeholder, .fileUpload::-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.7); }
+  button::placeholder,
+  input:not([type="file"])::placeholder,
+  .fileUpload::placeholder {
+    color: rgba(0, 0, 0, 0.7); }
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px; }
+
+button.delete {
+  background-color: #e74c3c; }
+
+label {
+  display: block;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold; }
+
+a,
+button,
+input {
+  cursor: pointer; }
+
+.home-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-gap: 30px; }
+  .home-videos .videoBlock:first-child,
+  .home-videos .videoBlock:nth-child(2) {
+    grid-column: span 3; }
+  .home-videos .videoBlock:nth-child(3),
+  .home-videos .videoBlock:nth-child(4),
+  .home-videos .videoBlock:nth-child(5) {
+    grid-column: span 2; }
+
+.video-detail__container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center; }
+  .video-detail__container .video__info {
+    width: 100%;
+    max-width: 640px;
+    margin-top: 25px; }
+    .video-detail__container .video__info button {
+      width: 100px;
+      margin-bottom: 15px; }
+    .video-detail__container .video__info .video__title,
+    .video-detail__container .video__info .video__views,
+    .video-detail__container .video__info .video__description {
+      display: block;
+      margin-bottom: 15px; }
+    .video-detail__container .video__info .video__title {
+      font-size: 22px;
+      font-weight: 400; }
+    .video-detail__container .video__info .videos__views {
+      font-size: 14px; }
+    .video-detail__container .video__info .video__description {
+      font-size: 16px; }
+  .video-detail__container .video__comments {
+    margin-top: 25px; }
+    .video-detail__container .video__comments .video__comments-number {
+      font-size: 18px; }
 
 .header {
   background-color: #ea232c;
@@ -185,25 +272,6 @@ main {
         margin-right: 15px; }
     .header .header__wrapper .header__column form {
       width: 100%; }
-      .header .header__wrapper .header__column form input {
-        padding: 7px 10px;
-        width: 100%;
-        border-radius: 5px;
-        font-size: 14px;
-        color: #444444;
-        font-weight: 600; }
-        .header .header__wrapper .header__column form input::-webkit-input-placeholder {
-          font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
-        .header .header__wrapper .header__column form input::-moz-placeholder {
-          font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
-        .header .header__wrapper .header__column form input::-ms-input-placeholder {
-          font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
-        .header .header__wrapper .header__column form input::placeholder {
-          font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
 
 .footer {
   margin-top: 50px;
@@ -273,15 +341,38 @@ main {
     width: 100%;
     max-width: 320px;
     margin-bottom: 25px; }
-    .form-container form input {
+    .form-container form input:not([type="file"]),
+    .form-container form .fileUpload {
       display: block;
       width: 100%;
-      box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2);
-      padding: 10px 10px 10px; }
-      .form-container form input:not(:last-child) {
+      margin-bottom: 25px; }
+      .form-container form input:not([type="file"]):not(:last-child),
+      .form-container form .fileUpload:not(:last-child) {
         margin-bottom: 25px; }
+      .form-container form input:not([type="file"]) label,
+      .form-container form .fileUpload label {
+        font-weight: 600; }
     .form-container form input[type="submit"] {
       background-color: #3498db;
       color: white;
       font-weight: bold;
       letter-spacing: 1px; }
+    .form-container form textarea {
+      width: 100%;
+      border: 0;
+      padding: 10px 10px 10px;
+      border-radius: 5px;
+      box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2);
+      margin-bottom: 25px; }
+  .form-container a {
+    max-width: 320px;
+    width: 100%; }
+
+.videoBlock video {
+  max-width: 100%;
+  margin-bottom: 10px; }
+
+.videoBlock .videoBlock__title {
+  font: 18px;
+  font-weight: 300;
+  margin-bottom: 10px; }
