@@ -1,3 +1,6 @@
+@charset "UTF-8";
+/*Sass 파일 변수 선언 : & 기호*/
+/*이름에 _ 붙인 이유 : Sass 파일 표기용 + 유저들이 실제로 사용않는 부분.*/
 html,
 body,
 div,
@@ -128,25 +131,22 @@ a {
 
 *,
 input {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box; }
+  box-sizing: border-box; }
 
 input {
   border: none;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box; }
+  box-sizing: border-box; }
   input:focus, input:active {
     outline: none; }
 
-html, body {
+html,
+body {
   height: 100%; }
 
 body {
   background-color: #f5f5f5;
   color: #444444;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px; }
 
 main {
@@ -158,20 +158,49 @@ main {
 .header {
   background-color: #ea232c;
   margin-bottom: 50px; }
-
-.header__wrapper {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  place-content: center center; }
-  .header__wrapper .header__column i {
-    color: #fff;
-    font-size: 40px; }
-    .header__wrapper .header__column i:nth-child(2) {
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-         -moz-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center; }
+  .header .header__wrapper {
+    padding: 5px 0px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    -webkit-box-align: center;
+            align-items: center; }
+    .header .header__wrapper .header__column i {
+      color: white;
+      font-size: 40px; }
+    .header .header__wrapper .header__column:nth-child(2) {
+      width: 100%;
+      justify-self: center; }
+    .header .header__wrapper .header__column:last-child {
+      justify-self: end; }
+    .header .header__wrapper .header__column ul {
+      display: -webkit-box;
+      display: flex;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase; }
+      .header .header__wrapper .header__column ul li:not(:last-child) {
+        margin-right: 15px; }
+    .header .header__wrapper .header__column form {
+      width: 100%; }
+      .header .header__wrapper .header__column form input {
+        padding: 7px 10px;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #444444;
+        font-weight: 600; }
+        .header .header__wrapper .header__column form input::-webkit-input-placeholder {
+          font-weight: 300;
+          color: rgba(0, 0, 0, 0.7); }
+        .header .header__wrapper .header__column form input::-moz-placeholder {
+          font-weight: 300;
+          color: rgba(0, 0, 0, 0.7); }
+        .header .header__wrapper .header__column form input::-ms-input-placeholder {
+          font-weight: 300;
+          color: rgba(0, 0, 0, 0.7); }
+        .header .header__wrapper .header__column form input::placeholder {
+          font-weight: 300;
+          color: rgba(0, 0, 0, 0.7); }

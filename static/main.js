@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/js/main.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./assets/scss/styles.scss\");\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar something = function something() {\n  return regeneratorRuntime.async(function something$(_context) {\n    while (1) {\n      switch (_context.prev = _context.next) {\n        case 0:\n          console.log(\"something\");\n\n        case 1:\n        case \"end\":\n          return _context.stop();\n      }\n    }\n  });\n};\n\n//# sourceURL=webpack:///./assets/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./assets/scss/styles.scss\");\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst something = async () => {\n  console.log(\"something\");\n};\n\n//# sourceURL=webpack:///./assets/js/main.js?");
 
 /***/ }),
 
@@ -106,17 +106,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scs
 /***/ (function(module, exports) {
 
 eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./assets/scss/styles.scss?");
-
-/***/ }),
-
-/***/ 0:
-/*!*************************************************!*\
-  !*** multi @babel/polyfill ./assets/js/main.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("!(function webpackMissingModule() { var e = new Error(\"Cannot find module '@babel/polyfill'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\nmodule.exports = __webpack_require__(/*! C:\\Users\\82106\\wetube\\assets\\js\\main.js */\"./assets/js/main.js\");\n\n\n//# sourceURL=webpack:///multi_@babel/polyfill_./assets/js/main.js?");
 
 /***/ })
 
