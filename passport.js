@@ -4,4 +4,8 @@ import passport from "passport";
 import User from "./models/User";
 
 passport.use(User.createStrategy());
-/*startegy 를 사용하게끔 하기. 이 경우 p-local-mongoose 즉 모델 User 의 것. 여기서 알 수 있듯 p-local은 passport의 shortcut 버전이라 할 수 있다.*/
+
+passport.serializeUser(User.serializeUser());
+/*쿠키에는 오직 user.id 만 담아 보내게끔 한다*/
+passport.deserializeUser(User.deserializeUser());
+/*지름길을 쓰는 이유 - 거의 모든 사람들이 이런 방식으로 쿠키를 사용하므로. */

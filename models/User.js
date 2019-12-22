@@ -11,6 +11,6 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
 
-const model = mongoose.Model("User", UserSchema); //이 모델의 이름은 User, 그리고 그 구성은 UserSchema 로부터 온다.
+const model = mongoose.model("User", UserSchema); //이 모델의 이름은 User, 그리고 그 구성은 UserSchema 로부터 온다.
 
 export default model;
