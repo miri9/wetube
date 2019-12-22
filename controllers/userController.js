@@ -1,10 +1,12 @@
+import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
 
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
 };
-export const postJoin = async (req, res) => {
+
+export const postJoin = async (req, res, next) => {
   const {
     body: { name, email, password, password2 }
   } = req;
@@ -20,21 +22,21 @@ export const postJoin = async (req, res) => {
       // 계정 생성
       await User.register(user, password);
       // 생성한 계정을 등록 register
+      next();
     } catch (error) {
       console.log(error);
     }
-
-    // to do : 사용자 로그인 상태
-    res.redirect(routes.home);
   }
 };
 
 export const getLogin = (req, res) => {
   res.render("login", { pageTitle: "Login" });
 };
-export const postLogin = (req, res) => {
-  res.redirect(routes.home);
-};
+export const postLogin = passport.authenticate("local", {
+  failureRedirect: routes.login,
+  successRedirect: routes.home
+});
+//"local"=우리가 설치한 strategy 이름.
 
 export const logout = (req, res) => {
   // 로그아웃 처리하기.
