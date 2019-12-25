@@ -38,9 +38,15 @@ export const postLogin = passport.authenticate("local", {
 });
 //"local"=우리가 설치한 strategy 이름.
 
+export const githubLogin = passport.authenticate();
+
+export const githubLoginCallback = (accessToken, refreshToken, profile, cb) => {
+  // cb 실행되면, passport 에게 사용자가 성공적으로 로그인됨을 알려줌.
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
 export const logout = (req, res) => {
-  // 로그아웃 처리하기.
-  // res.render("logout", { pageTitle:"Log out"});
+  req.logout(); //passport 기능
   res.redirect(routes.home);
 };
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
