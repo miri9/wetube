@@ -9,7 +9,8 @@ import {
   getLogin,
   logout,
   githubLogin,
-  postGithubLogin
+  postGithubLogin,
+  getMe
 } from "../controllers/userController";
 import { onlyPublic, onlyPrivate } from "../middlewares";
 
@@ -33,5 +34,7 @@ globalRouter.get(
   postGithubLogin
 );
 //인증 후 > postGithublogin 홈으로 되돌려보냄
+
+globalRouter.get(routes.me, getMe);
 
 export default globalRouter;
