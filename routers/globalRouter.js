@@ -10,6 +10,8 @@ import {
   logout,
   githubLogin,
   postGithubLogin,
+  facebookLogin,
+  postFacebookLogin,
   getMe
 } from "../controllers/userController";
 import { onlyPublic, onlyPrivate } from "../middlewares";
@@ -27,13 +29,18 @@ globalRouter.get(routes.search, search);
 globalRouter.get(routes.logout, onlyPrivate, logout);
 
 globalRouter.get(routes.github, githubLogin);
-//인증
 globalRouter.get(
   routes.githubCallback,
   passport.authenticate("github", { failureRedirect: "/login" }),
   postGithubLogin
 );
-//인증 후 > postGithublogin 홈으로 되돌려보냄
+
+globalRouter.get(routes.facebook, facebookLogin);
+globalRouter.get(
+  routes.facebookCallback,
+  passport.authenticate("facebook", { failureRedirect: "/login" }),
+  postFacebookLogin
+);
 
 globalRouter.get(routes.me, getMe);
 

@@ -38,6 +38,7 @@ export const postLogin = passport.authenticate("local", {
 });
 //"local"=우리가 설치한 strategy 이름.
 
+// github
 export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (
@@ -74,6 +75,25 @@ export const postGithubLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
+// facebook
+
+export const facebookLogin = passport.authenticate("facebook");
+
+export const facebookLoginCallback = (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
+export const postFacebookLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
+//
+
 export const logout = (req, res) => {
   req.logout(); //passport 기능
   res.redirect(routes.home);
@@ -87,5 +107,14 @@ export const editProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "Edit Profile" });
 export const changePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "Change Password" });
-export const userDetail = (req, res) =>
-  res.render("userDetail", { pageTitle: "User Detail" });
+export const userDetail = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const user = await User.fineId(id);
+    res.render("userDetail", { pageTitle: "User Detail", user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
