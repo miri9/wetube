@@ -68,14 +68,15 @@ export const githubLoginCallback = async (
       user.avatarUrl = avatarUrl;
       user.save();
       return cb(null, user); // 이후 쿠키에 유저 저장.
+    } else {
+      const newUser = await User.create({
+        email,
+        name,
+        githubId: id,
+        avatarUrl
+      });
+      return cb(null, newUser);
     }
-    const newUser = await User.create({
-      email,
-      name,
-      githubId: id,
-      avatarUrl
-    });
-    return cb(null, newUser);
   } catch (error) {
     return cb(error);
   }
@@ -101,14 +102,15 @@ export const facebookLoginCallback = async (_, __, profile, cb) => {
 
       user.save();
       return cb(null, user);
+    } else {
+      const newUser = await User.create({
+        email,
+        name,
+        facebookId: id,
+        avatarUrl: `http://graph.facebook.com/${id}/picture?type=large`
+      });
+      return cb(null, newUser);
     }
-    const newUser = await User.create({
-      email,
-      name,
-      facebookId: id,
-      avatarUrl: `http://graph.facebook.com/${id}/picture?type=large`
-    });
-    return cb(null, newUser);
   } catch (error) {
     return cb(error);
   }
@@ -131,7 +133,8 @@ export const userDetail = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const user = await User.fineId(id);
+    const user = await User.fineById(id).populate('videos');
+    console.log(user);
     res.render("userDetail", { pageTitle: "User Detail", user });
   } catch (error) {
     res.redirect(routes.home);
