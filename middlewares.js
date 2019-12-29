@@ -2,6 +2,7 @@ import routes from "./routes";
 import multer from "multer";
 
 const multerVideo = multer({ dest: "uploads/videos/" });
+const multerAvatar = multer({ dest: "uploads/avatars/" });
 
 export const localMiddleware = (req, res, next) => {
   res.locals.siteName = "WeTube";
@@ -17,7 +18,6 @@ export const onlyPublic = (req, res, next) => {
     next();
   }
 };
-// 로그아웃 상태에서만 접근을 허용하겠다는 의미.
 
 export const onlyPrivate = (req, res, next) => {
   if (req.user) {
@@ -28,3 +28,4 @@ export const onlyPrivate = (req, res, next) => {
 };
 
 export const uploadVideo = multerVideo.single("videoFile");
+export const uploadAvatar = multerAvatar.single("avatar");
