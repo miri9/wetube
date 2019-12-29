@@ -2,6 +2,9 @@ import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
 
+
+// join
+
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
 };
@@ -29,6 +32,8 @@ export const postJoin = async (req, res, next) => {
   }
 };
 
+// log in-out
+
 export const getLogin = (req, res) => {
   res.render("login", { pageTitle: "Login" });
 };
@@ -38,7 +43,13 @@ export const postLogin = passport.authenticate("local", {
 });
 //"local"=우리가 설치한 strategy 이름.
 
+export const logout = (req, res) => {
+  req.logout(); //passport 기능
+  res.redirect(routes.home);
+};
+
 // github
+
 export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (
@@ -107,19 +118,13 @@ export const postFacebookLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
-//
+// users
 
-export const logout = (req, res) => {
-  req.logout(); //passport 기능
-  res.redirect(routes.home);
-};
+export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 
 export const getMe = (req, res) => {
   res.render("userDetail", { pageTitle: "User Detail", user: req.user });
 };
-export const users = (req, res) => res.render("users", { pageTitle: "Users" });
-
-
 
 export const userDetail = async (req, res) => {
   const {
