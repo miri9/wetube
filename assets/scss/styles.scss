@@ -1,10 +1,12 @@
 @import "config/_variables.scss";
 /*이름에 _ 붙인 이유 : Sass 파일 표기용 + 유저들이 실제로 사용않는 부분.*/
 @import "config/reset.scss";
+@import "config/utils.scss";
 @import "main.scss";
 
 @import "pages/home.scss";
 @import "pages/videoDetail.scss";
+@import "pages/userDetail.scss";
 
 @import "partials/header.scss";
 @import "partials/footer.scss";

@@ -118,10 +118,8 @@ export const getMe = (req, res) => {
   res.render("userDetail", { pageTitle: "User Detail", user: req.user });
 };
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
-export const editProfile = (req, res) =>
-  res.render("editProfile", { pageTitle: "Edit Profile" });
 export const changePassword = (req, res) =>
-  res.render("changePassword", { pageTitle: "Change Password" });
+res.render("changePassword", { pageTitle: "Change Password" });
 export const userDetail = async (req, res) => {
   const {
     params: { id }
@@ -133,3 +131,5 @@ export const userDetail = async (req, res) => {
     res.redirect(routes.home);
   }
 };
+export const getEditProfile = (req, res) =>
+  res.render("editProfile", { pageTitle: "Edit Profile" });
