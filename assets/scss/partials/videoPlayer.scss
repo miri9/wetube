@@ -1,13 +1,26 @@
 .videoPlayer {
   position: relative;
   &:hover {
-    .videoPlayer__controls {
+    .videoPlayer__controls,
+    .videoPlayer__volume {
       opacity: 1;
     }
   }
   video {
     width: 100%;
     max-width: 100%;
+  }
+  .videoPlayer__volume {
+    opacity: 0;
+    transition: opacity 0.4s linear;
+    position: absolute;
+    width: 70px;
+    bottom: 53px;
+    left: -5px;
+    transform: rotateZ(-90deg);
+    input {
+      color: #eee;
+    }
   }
   .videoPlayer__controls {
     opacity: 0;
@@ -16,7 +29,7 @@
     position: absolute;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    bottom: 5px;
+    bottom: 0px;
     width: 100%;
     padding: 10px;
     font-size: 16px;

@@ -426,11 +426,24 @@ input {
 
 .videoPlayer {
   position: relative; }
-  .videoPlayer:hover .videoPlayer__controls {
+  .videoPlayer:hover .videoPlayer__controls,
+  .videoPlayer:hover .videoPlayer__volume {
     opacity: 1; }
   .videoPlayer video {
     width: 100%;
     max-width: 100%; }
+  .videoPlayer .videoPlayer__volume {
+    opacity: 0;
+    -webkit-transition: opacity 0.4s linear;
+    transition: opacity 0.4s linear;
+    position: absolute;
+    width: 70px;
+    bottom: 53px;
+    left: -5px;
+    -webkit-transform: rotateZ(-90deg);
+            transform: rotateZ(-90deg); }
+    .videoPlayer .videoPlayer__volume input {
+      color: #eee; }
   .videoPlayer .videoPlayer__controls {
     opacity: 0;
     z-index: 9;
@@ -439,7 +452,7 @@ input {
     position: absolute;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    bottom: 5px;
+    bottom: 0px;
     width: 100%;
     padding: 10px;
     font-size: 16px;
