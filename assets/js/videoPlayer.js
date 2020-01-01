@@ -13,14 +13,20 @@ function setTotalTime() {
 }
 
 function getCurrentTime() {
-  const currentTimeString = formatDate(videoPlayer.currentTime);
+  const currentTimeString = formatDate(Math.floor(videoPlayer.currentTime));
   currentTime.innerHTML = currentTimeString;
 }
 
+function handleEnded() {
+  videoPlayer.currentTime = 0;
+  playBtn.innerHTML = '<i class="fas fa-play"></i>';
+}
+
 function init() {
-  playBtn.addEventListener("click", handlePlayClick);
   videoPlayer.addEventListener("click", handlePlayClick);
   videoPlayer.addEventListener("loadedmetadata", setTotalTime);
+  videoPlayer.addEventListener("ended", handleEnded);
+  playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumeClick);
   fullScrnBtn.addEventListener("click", goFullScreen);
 }
