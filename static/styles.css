@@ -474,3 +474,12 @@ input {
     .videoPlayer .videoPlayer__controls i {
       font-size: 25px;
       cursor: pointer; }
+
+.record-container {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 25px; }
+  .record-container video {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #444444; }
