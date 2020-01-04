@@ -258,6 +258,18 @@ input {
       margin-top: 25px; }
       .video-detail__container .video__comments .add__comment input {
         width: 100%; }
+    .video-detail__container .video__comments .video__comments-list {
+      margin-top: 50px; }
+      .video-detail__container .video__comments .video__comments-list li {
+        width: 100%;
+        color: white;
+        background-color: #3498db;
+        font-size: 16px;
+        padding: 15px 30px;
+        border-radius: 20px;
+        border-bottom-left-radius: 0; }
+        .video-detail__container .video__comments .video__comments-list li:not(:last-child) {
+          margin-bottom: 15px; }
 
 .user-profile {
   width: 100%;
