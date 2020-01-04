@@ -246,9 +246,18 @@ input {
     .video-detail__container .video__info .video__description {
       font-size: 16px; }
   .video-detail__container .video__comments {
-    margin-top: 25px; }
-    .video-detail__container .video__comments .video__comments-number {
-      font-size: 18px; }
+    margin-top: 05px; }
+    .video-detail__container .video__comments .video__comment-number {
+      display: block;
+      text-align: center;
+      font-size: 15px;
+      margin: 10px 0 10px; }
+    .video-detail__container .video__comments .add__comment {
+      display: block;
+      width: 100%;
+      margin-top: 25px; }
+      .video-detail__container .video__comments .add__comment input {
+        width: 100%; }
 
 .user-profile {
   width: 100%;
