@@ -10,7 +10,7 @@
       width: 100px;
       margin-bottom: 15px;
     }
-    .video__author {
+    .video_author {
       a {
         color: #3498db;
       }
@@ -26,7 +26,7 @@
       font-size: 22px;
       font-weight: 400;
     }
-    .videos__views {
+    .video__views {
       font-size: 14px;
     }
     .video__description {
@@ -34,7 +34,7 @@
     }
   }
   .video__comments {
-    margin-top: 05px;
+    margin-top: 5px;
     .video__comment-number {
       display: block;
       text-align: center;
@@ -46,7 +46,10 @@
       width: 100%;
       margin-top: 25px;
       input {
+        max-width: 500px;
+        display: block;
         width: 100%;
+        padding: 30px;
       }
     }
     .video__comments-list {
@@ -61,6 +64,22 @@
         border-bottom-left-radius: 0;
         &:not(:last-child) {
           margin-bottom: 15px;
+        }
+      }
+      .delete__comment {
+        position: relative;
+        text-align: center;
+        span {
+          position: absolute;
+          top: -55px;
+          right: -40px;
+          button {
+            border-radius: 50px;
+            padding: 5px 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+          }
         }
       }
     }

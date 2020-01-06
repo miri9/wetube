@@ -19,11 +19,21 @@ const addComment = comment => {
   span.innerHTML = comment;
   li.appendChild(span);
   commentList.prepend(li);
+  // delete btn
+  const div = document.createElement("div");
+  const x_span = document.createElement("span");
+  const x_btn = document.createElement("button");
+  div.className = "delete__comment";
+  //div.id = "";
+  x_btn.innerHTML = "x";
+  x_span.appendChild(x_btn);
+  div.appendChild(x_span);
   increaseNumber();
 };
 
 const sendComment = async comment => {
   const videoId = window.location.href.split("/videos/")[1];
+  console.log(videoId);
   const response = await axios({
     url: `/api/${videoId}/comment`,
     method: "POST",

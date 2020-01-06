@@ -15,7 +15,7 @@ main {
   margin: 0 auto;
   min-height: 70vh;
 }
-button,
+button:not(.jsDeleteComment),
 input:not([type="file"]),
 .fileUpload {
   padding: 10px 10px 10px;
@@ -30,12 +30,24 @@ input:not([type="file"]),
     color: rgba(0, 0, 0, 0.7);
   }
 }
-button {
+button:not(.jsDeleteComment) {
   background-color: #3498db;
   color: white;
   border: none;
   font-weight: bold;
   letter-spacing: 1px;
+}
+button.jsDeleteComment {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
 }
 button.delete {
   background-color: #e74c3c;

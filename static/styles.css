@@ -160,7 +160,7 @@ main {
   margin: 0 auto;
   min-height: 70vh; }
 
-button,
+button:not(.jsDeleteComment),
 input:not([type="file"]),
 .fileUpload {
   padding: 10px 10px 10px;
@@ -171,23 +171,35 @@ input:not([type="file"]),
   font-size: 14px;
   color: #444444;
   max-width: 320px; }
-  button::-webkit-input-placeholder, input:not([type="file"])::-webkit-input-placeholder, .fileUpload::-webkit-input-placeholder {
+  button:not(.jsDeleteComment)::-webkit-input-placeholder, input:not([type="file"])::-webkit-input-placeholder, .fileUpload::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.7); }
-  button::-moz-placeholder, input:not([type="file"])::-moz-placeholder, .fileUpload::-moz-placeholder {
+  button:not(.jsDeleteComment)::-moz-placeholder, input:not([type="file"])::-moz-placeholder, .fileUpload::-moz-placeholder {
     color: rgba(0, 0, 0, 0.7); }
-  button::-ms-input-placeholder, input:not([type="file"])::-ms-input-placeholder, .fileUpload::-ms-input-placeholder {
+  button:not(.jsDeleteComment)::-ms-input-placeholder, input:not([type="file"])::-ms-input-placeholder, .fileUpload::-ms-input-placeholder {
     color: rgba(0, 0, 0, 0.7); }
-  button::placeholder,
+  button:not(.jsDeleteComment)::placeholder,
   input:not([type="file"])::placeholder,
   .fileUpload::placeholder {
     color: rgba(0, 0, 0, 0.7); }
 
-button {
+button:not(.jsDeleteComment) {
   background-color: #3498db;
   color: white;
   border: none;
   font-weight: bold;
   letter-spacing: 1px; }
+
+button.jsDeleteComment {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 15px;
+  background-color: #3498db;
+  color: white;
+  border: none; }
 
 button.delete {
   background-color: #e74c3c; }
@@ -230,7 +242,7 @@ input {
     .video-detail__container .video__info button {
       width: 100px;
       margin-bottom: 15px; }
-    .video-detail__container .video__info .video__author a {
+    .video-detail__container .video__info .video_author a {
       color: #3498db; }
     .video-detail__container .video__info .video__title,
     .video-detail__container .video__info .video__author,
@@ -241,12 +253,12 @@ input {
     .video-detail__container .video__info .video__title {
       font-size: 22px;
       font-weight: 400; }
-    .video-detail__container .video__info .videos__views {
+    .video-detail__container .video__info .video__views {
       font-size: 14px; }
     .video-detail__container .video__info .video__description {
       font-size: 16px; }
   .video-detail__container .video__comments {
-    margin-top: 05px; }
+    margin-top: 5px; }
     .video-detail__container .video__comments .video__comment-number {
       display: block;
       text-align: center;
@@ -257,7 +269,10 @@ input {
       width: 100%;
       margin-top: 25px; }
       .video-detail__container .video__comments .add__comment input {
-        width: 100%; }
+        max-width: 500px;
+        display: block;
+        width: 100%;
+        padding: 30px; }
     .video-detail__container .video__comments .video__comments-list {
       margin-top: 50px; }
       .video-detail__container .video__comments .video__comments-list li {
@@ -270,6 +285,19 @@ input {
         border-bottom-left-radius: 0; }
         .video-detail__container .video__comments .video__comments-list li:not(:last-child) {
           margin-bottom: 15px; }
+      .video-detail__container .video__comments .video__comments-list .delete__comment {
+        position: relative;
+        text-align: center; }
+        .video-detail__container .video__comments .video__comments-list .delete__comment span {
+          position: absolute;
+          top: -55px;
+          right: -40px; }
+          .video-detail__container .video__comments .video__comments-list .delete__comment span button {
+            border-radius: 50px;
+            padding: 5px 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center; }
 
 .user-profile {
   width: 100%;
